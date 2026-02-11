@@ -1,0 +1,203 @@
+add_newline = false
+
+format = """
+[](fg:#DDDDDD)\
+[$os](fg:#AA0000 bg:#DDDDDD)\
+[](fg:#DDDDDD bg:#c1bfbf)\
+[](fg:#c1bfbf bg:#DDDDDD)\
+[ $username](fg:#AA0000 bg:#DDDDDD)\
+[](fg:#DDDDDD bg:#d3b3b3)\
+[](fg:#d3b3b3 bg:#c76b6b)\
+[](fg:#c76b6b bg:#b94b4b)\
+[](fg:#b94b4b bg:#AA0000)\
+[](fg:#AA0000 bg:#AA0000)\
+[ $directory](fg:#DDDDDD bg:#AA0000)\
+[$git_branch](fg:#DDDDDD bg:#AA0000)\
+[](fg:#AA0000 bg:#b94b4b)\
+[](fg:#b94b4b bg:#AA0000)\
+[󰨏 $cmd_duration](fg:#DDDDDD bg:#AA0000)\
+[](fg:#AA0000)\
+$fill\
+[](fg:#AA0000)\
+[󰥔 $time](fg:#DDDDDD bg:#AA0000)\
+[](fg:#AA0000 bg:#AA0000)\
+[](fg:#b94b4b bg:#AA0000)\
+[](fg:#c76b6b bg:#b94b4b)\
+[](fg:#d3b3b3 bg:#c76b6b)\
+[](fg:#DDDDDD bg:#d3b3b3)\
+$python\
+$nodejs\
+$rust\
+$java\
+$golang\
+$php\
+$ruby\
+$c\
+$swift\
+$kotlin\
+$lua\
+$terraform\
+$docker_context\
+$haskell\
+$elixir\
+$dart\
+$zig\
+[](fg:#DDDDDD)
+$character
+"""
+
+palette = "BloodTear"
+
+[palettes.BloodTear]
+PRIM = '#AA0000'
+SEC = '#DDDDDD'
+GRAD0 = '#c1bfbf'
+GRAD1 = '#d3b3b3'
+GRAD2 = '#c76b6b'
+GRAD3 = '#b94b4b'
+
+
+# OS module
+[os]
+disabled = false
+symbols = { Windows = " ", Debian = " " }
+style = "red"
+format = "$symbol"
+
+# Username module
+[username]
+show_always = true
+format = "$user"
+
+# Fill module
+[fill]
+symbol = "─"
+style = "bold #464646"
+
+# Directory module
+[directory]
+format = "$path"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+# Git branch
+[git_branch]
+symbol = " "
+format = """[[](fg:#AA0000 bg:#b94b4b)[](fg:#b94b4b bg:#AA0000)[$symbol($branch)](fg:#DDDDDD bg:#AA0000)]($style)"""
+
+# Time
+[time]
+use_12hr = true
+disabled = false
+time_format = "%I:%M%p"
+format = '[$time]($style)'
+style = "bold #DDDDDD on #AA0000"
+
+# Command duration
+[cmd_duration]
+show_milliseconds = true
+style = "bold #DDDDDD on #EE9999"
+min_time = 0
+format = "[$duration]($style)"
+
+# Prompt character
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+
+[python]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)($virtualenv)](fg:#AA0000 bg:#DDDDDD)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)"""
+
+[nodejs]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[rust]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[java]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[golang]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[php]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[ruby]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[c]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+# [cpp]
+# symbol = ""
+# disabled = false
+# style = "bold #AA0000 on #DDDDDD"
+# format = """[($version(-$name))[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[swift]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[kotlin]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[lua]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[terraform]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[docker_context]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[haskell]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[elixir]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[dart]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
+
+[zig]
+symbol = ""
+style = "bold #AA0000 on #DDDDDD"
+format = """[[($version)[](fg:#c1bfbf bg:#DDDDDD)[](fg:#DDDDDD bg:#c1bfbf)$symbol ](fg:#AA0000 bg:#DDDDDD)]($style)"""
